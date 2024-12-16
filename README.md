@@ -79,7 +79,7 @@ Before submitting a pull request, ensure that all tests pass and that your chang
 Please include a video or screenshot demonstrating the feature you've added or the bug you've fixed. This helps the reviewers understand the functionality and ensures your changes work as expected.
 
 ### Review Process
-Once your pull request is created, it will be reviewed by the maintainers. We might request further changes or improvements before merging it into the main codebase.add these guidelines to my readme file which is # Simple Ticketing App
+Once your pull request is created, it will be reviewed by the maintainers. We might request further changes or improvements before merging it into the main codebase.
 
 
 
