@@ -65,7 +65,7 @@ We welcome contributions to improve the project! Before contributing, please fol
     git add .
     git commit -m "Your commit message"
     git push origin feature-branch
-   ```
+
 4.**Open A PR"**:Create a Pull Request: Open a pull request (PR) from your branch to the main branch of the original repository.
 
 ### Code Style Guidelines
@@ -73,6 +73,7 @@ JavaScript/Node.js: Follow best practices for JavaScript (ES6+).
 Code Formatting: Ensure that your code is properly formatted and follows a consistent style (use tools like Prettier or ESLint if necessary).
 Documentation: Update the README or comments if your changes impact the documentation or functionality.
 Testing
+Contributors: Don't forget to add yourself on the `CONTRIBUTORS.md` file.
 Before submitting a pull request, ensure that all tests pass and that your changes do not break any existing functionality. If applicable, write new tests to cover your changes.
 
 ### Proof of Work
