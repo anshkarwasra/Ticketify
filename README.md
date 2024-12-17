@@ -49,32 +49,41 @@ We welcome contributions to improve the project! Before contributing, please fol
 
 ### How to Contribute
 
-1. **Fork the Repository**: Start by forking the repository to your own GitHub account.
-2. **Clone Your Fork**: Clone the forked repository to your local machine.
+1. **Describe Your Approach**  
+   Start by explaining your approach to the issue in the issue page's comments section. Detail how you plan to address the problem and the specific changes you intend to make.  
+   - If you're uncertain about where to start or need guidance, feel free to ask for direction in the comments. The reviewers are there to guide you at each step.  
+   - Wait for approval or feedback on your proposed implementation before proceeding to open a PR and make changes.
+2. **Fork the Repository**  
+   Fork the original repository to your own GitHub account.
+3. **Clone Your Fork**  
+   Clone the forked repository to your local machine. Then, create a new branch to work on the issue:  
    ```bash
    git clone <your-fork-repository-url>
-   git checkout -b feature-branch
-
+   git checkout -b issue-<issue_no>-<feature_or_issue_description>
    ```
-   Make Changes: Make the necessary changes or add new features.
-   
-   Commit Your Changes: After making changes, commit them to your branch.
-   ```
-3. **Commit your changes**:
-    ```bash
-    git add .
-    git commit -m "Your commit message"
-    git push origin feature-branch
+   Branch Name: Use the format `issue-<issue_no>-<feature_or_issue_description>` (e.g., `issue-42-add-login-page`) to clearly indicate the issue and work being done.
 
-4.**Open A PR"**:Create a Pull Request: Open a pull request (PR) from your branch to the main branch of the original repository.
+4. **Commit Your Changes**  
+   After making changes, stage and commit them:  
+   ```bash
+   git add .
+   git commit -m "Describe your changes concisely"
+   git push origin issue-<issue_no>-<feature_or_issue_description>
+   ```
+
+5. **Open a Pull Request (PR)**  
+   Open a Pull Request (PR) from your branch to the main branch of the original repository. Ensure the following before creating the PR:  
+   - Your code adheres to the code style guidelines.  
+   - Relevant documentation or comments are added if necessary.  
+   - Include a descriptive title and a detailed description of your changes in the PR.
 
 ### Code Style Guidelines
-JavaScript/Node.js: Follow best practices for JavaScript (ES6+).
-Code Formatting: Ensure that your code is properly formatted and follows a consistent style (use tools like Prettier or ESLint if necessary).
-Documentation: Update the README or comments if your changes impact the documentation or functionality.
+- JavaScript/Node.js: Follow best practices for JavaScript (ES6+).
+- Code Formatting: Ensure that your code is properly formatted and follows a consistent style (use tools like Prettier or ESLint if necessary).
+- Documentation: Update the README or comments if your changes impact the documentation or functionality.
 Testing
-Contributors: Don't forget to add yourself on the `CONTRIBUTORS.md` file.
-Before submitting a pull request, ensure that all tests pass and that your changes do not break any existing functionality. If applicable, write new tests to cover your changes.
+- Contributors: Don't forget to add yourself on the `CONTRIBUTORS.md` file.
+- Before submitting a pull request, ensure that all tests pass and that your changes do not break any existing functionality. If applicable, write new tests to cover your changes.
 
 ### Proof of Work
 Please include a video or screenshot demonstrating the feature you've added or the bug you've fixed. This helps the reviewers understand the functionality and ensures your changes work as expected.
