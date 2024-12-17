@@ -59,16 +59,16 @@ We welcome contributions to improve the project! Before contributing, please fol
    Clone the forked repository to your local machine. Then, create a new branch to work on the issue:  
    ```bash
    git clone <your-fork-repository-url>
-   git checkout -b issue-<issue_no>-<feature_or_issue_description>
+   git checkout -b branch-name
    ```
-   Branch Name: Use the format `issue-<issue_no>-<feature_or_issue_description>` (e.g., `issue-42-add-login-page`) to clearly indicate the issue and work being done.
+   Branch Name: Use the format `<feature_or_issue_description>#<issue_no>` (e.g., `add-login-page#42`) to clearly indicate the issue and work being done. The branch name should provide a (short) description of the issue. Branch without issue number will not be accepted.
 
 4. **Commit Your Changes**  
    After making changes, stage and commit them:  
    ```bash
    git add .
    git commit -m "Describe your changes concisely"
-   git push origin issue-<issue_no>-<feature_or_issue_description>
+   git push origin branch-name
    ```
 
 5. **Open a Pull Request (PR)**  
@@ -76,14 +76,14 @@ We welcome contributions to improve the project! Before contributing, please fol
    - Your code adheres to the code style guidelines.  
    - Relevant documentation or comments are added if necessary.  
    - Include a descriptive title and a detailed description of your changes in the PR.
+   - See MergeFest-Hacker's [CONTRIBUTING.md](https://github.com/IMGIITRoorkee/MergeFest-Hacker/blob/main/CONTRIBUTORS.md) for sample PR Template.
 
 ### Code Style Guidelines
 - JavaScript/Node.js: Follow best practices for JavaScript (ES6+).
 - Code Formatting: Ensure that your code is properly formatted and follows a consistent style (use tools like Prettier or ESLint if necessary).
 - Documentation: Update the README or comments if your changes impact the documentation or functionality.
 Testing
-- Contributors: Don't forget to add yourself on the `CONTRIBUTORS.md` file.
-- Before submitting a pull request, ensure that all tests pass and that your changes do not break any existing functionality. If applicable, write new tests to cover your changes.
+- Contributors: Don't forget to add yourself on the [CONTRIBUTORS.md](https://github.com/IMGIITRoorkee/Ticketify/blob/master/CONTRIBUTORS.md) file.
 
 ### Proof of Work
 Please include a video or screenshot demonstrating the feature you've added or the bug you've fixed. This helps the reviewers understand the functionality and ensures your changes work as expected.
