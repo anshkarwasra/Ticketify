@@ -94,9 +94,9 @@ const EditTicketForm = ({ ticket }) => {
         <textarea
           id="description"
           name="description"
-          
+          onChange={handleChange}
           required={true}
-          
+          value={formData.description}
           rows="5"
         />
         <label>Category</label>
