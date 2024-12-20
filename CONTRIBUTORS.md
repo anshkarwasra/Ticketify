@@ -1,2 +1,2 @@
-Dishika Vidhani [github:https://github.com/disvid]
+Dishika Vidhani [https://github.com/disvid]
 
