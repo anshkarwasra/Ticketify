@@ -172,9 +172,17 @@ const EditTicketForm = ({ ticket }) => {
             className="w-full" 
           />
           <div className="absolute top-0 left-0 right-0 flex justify-between px-2">
-            <span className="text-xs">0</span>
-            <span className="text-xs">50</span>
-            <span className="text-xs">100</span>
+            <span className="text-xs">0%</span>
+            <span className="text-xs">10%</span>
+            <span className="text-xs">20%</span>
+            <span className="text-xs">30%</span>
+            <span className="text-xs">40%</span>
+            <span className="text-xs">50%</span>
+            <span className="text-xs">60%</span>
+            <span className="text-xs">70%</span>
+            <span className="text-xs">80%</span>
+            <span className="text-xs">90%</span>
+            <span className="text-xs">100%</span>
           </div>
         </div>
         <label>Status</label>
