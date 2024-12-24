@@ -35,7 +35,8 @@ const Dashboard = async () => {
               <h2>{uniqueStatus}</h2>
               <div className="lg:grid grid-cols-2 xl:grid-cols-4 ">
                 {tickets
-                  .filter((ticket) => ticket.status === uniqueStatus) 
+                  .filter((ticket) => ticket.status === uniqueStatus)
+                  .sort((a, b) => b.priority - a.priority)
                   .map((filteredTicket, _index) => (
                     <TicketCard
                       id={_index}

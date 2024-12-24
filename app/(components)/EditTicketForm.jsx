@@ -52,9 +52,10 @@ const EditTicketForm = ({ ticket }) => {
     } else {
       const res = await fetch("/api/Tickets", {
         method: "POST",
-        body: JSON.stringify({ formData }),
-        //@ts-ignore
-        "Content-Type": "application/json",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ formData })
       });
       if (!res.ok) {
         throw new Error("Failed to create ticket");
@@ -70,6 +71,8 @@ const EditTicketForm = ({ ticket }) => {
     "Software Problem",
     "Application Deveopment",
     "Project",
+    "Bug Fix",
+    "MVP"
   ];
 
   return (
@@ -93,9 +96,9 @@ const EditTicketForm = ({ ticket }) => {
         <textarea
           id="description"
           name="description"
-          
+          onChange={handleChange}
           required={true}
-          
+          value={formData.description}
           rows="5"
         />
         <label>Category</label>
@@ -160,15 +163,31 @@ const EditTicketForm = ({ ticket }) => {
           <label>5</label>
         </div>
         <label>Progress</label>
-        <input
-          type="range"
-          id="progress"
-          name="progress"
-          value={formData.progress}
-          min="0"
-          max="100"
-          onChange={handleChange}
-        />
+        <div className="relative">
+          <input
+            type="range"
+            id="progress"
+            name="progress"
+            value={formData.progress}
+            min="0"
+            max="100"
+            onChange={handleChange}
+            className="w-full" 
+          />
+          <div className="absolute top-0 left-0 right-0 flex justify-between px-2">
+            <span className="text-xs">0%</span>
+            <span className="text-xs">10%</span>
+            <span className="text-xs">20%</span>
+            <span className="text-xs">30%</span>
+            <span className="text-xs">40%</span>
+            <span className="text-xs">50%</span>
+            <span className="text-xs">60%</span>
+            <span className="text-xs">70%</span>
+            <span className="text-xs">80%</span>
+            <span className="text-xs">90%</span>
+            <span className="text-xs">100%</span>
+          </div>
+        </div>
         <label>Status</label>
         <select name="status" value={formData.status} onChange={handleChange}>
           <option value="not started">Not Started</option>
