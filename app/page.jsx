@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import TicketCard from "./(components)/TicketCard";
 
 const getTickets = async () => {
@@ -14,43 +16,76 @@ const getTickets = async () => {
     return res.json();
   } catch (error) {
     console.log("Error loading tickets: ", error);
+    return { tickets: [] }; 
   }
 };
 
-const Dashboard = async () => {
-  const data = await getTickets();
+const Dashboard = () => {
+  const [tickets, setTickets] = useState([]);
+  const [viewBy, setViewBy] = useState("category"); 
 
-  const tickets = data.tickets;
+  useEffect(() => {
+    const fetchTickets = async () => {
+      const data = await getTickets();
+      setTickets(data?.tickets || []); 
+    };
 
-  const uniqueStatuses = [
-    ...new Set(tickets?.map(({ status }) => status)),
-  ];
+    fetchTickets();
+  }, []);
+
+  const uniqueCategories = [...new Set(tickets?.map(({ category }) => category))];
+  const uniqueStatuses = [...new Set(tickets?.map(({ status }) => status))];
+
+  const handleViewByChange = (event) => {
+    setViewBy(event.target.value);
+  };
+
+  const getUniqueGroups = () => {
+    return viewBy === "category" ? uniqueCategories : uniqueStatuses;
+  };
 
   return (
     <div className="p-5">
+      <div className="mb-4">
+        <label htmlFor="view-by" className="mr-2">
+          View By:
+        </label>
+        <select
+          id="view-by"
+          value={viewBy}
+          onChange={handleViewByChange}
+          className="p-2 border rounded"
+        >
+          <option value="category">Category</option>
+          <option value="status">Status</option>
+        </select>
+      </div>
+
       <div>
-        {tickets &&
-          uniqueStatuses?.map((uniqueStatus, statusIndex) => (
-            <div key={statusIndex} className="mb-4">
-              <h2>{uniqueStatus}</h2>
-              <div className="lg:grid grid-cols-2 xl:grid-cols-4 ">
-                {tickets
-                  .filter((ticket) => ticket.status === uniqueStatus)
-                  .sort((a, b) => b.priority - a.priority)
-                  .map((filteredTicket, _index) => (
-                    <TicketCard
-                      id={_index}
-                      key={_index}
-                      ticket={filteredTicket}
-                    />
-                  ))}
-              </div>
+        {getUniqueGroups().map((group, groupIndex) => (
+          <div key={groupIndex} className="mb-4">
+            <h2>{group}</h2>
+            <div className="lg:grid grid-cols-2 xl:grid-cols-4 gap-4">
+              {tickets
+                .filter((ticket) =>
+                  viewBy === "category"
+                    ? ticket.category === group
+                    : ticket.status === group
+                )
+                .sort((a, b) => b.priority - a.priority)
+                .map((filteredTicket, ticketIndex) => (
+                  <TicketCard
+                    id={ticketIndex}
+                    key={ticketIndex}
+                    ticket={filteredTicket}
+                  />
+                ))}
             </div>
-          ))}
+          </div>
+        ))}
       </div>
     </div>
   );
 };
 
 export default Dashboard;
-
