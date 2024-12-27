@@ -6,11 +6,9 @@ const getTickets = async () => {
     const res = await fetch("http://localhost:3000/api/Tickets", {
       cache: "no-store",
     });
-
     if (!res.ok) {
       throw new Error("Failed to fetch topics");
     }
-
     return res.json();
   } catch (error) {
     console.log("Error loading topics: ", error);
@@ -20,10 +18,17 @@ const getTickets = async () => {
 const Dashboard = async () => {
   const data = await getTickets();
 
-  
+  if (!data || !data?.tickets) {
+    return (
+      <div className="p-5">
+        <h2 className="text-red-500">
+          Unable to load tickets. Please try again later.
+        </h2>
+      </div>
+    );
+  }
 
   const tickets = data.tickets;
-
   const uniqueCategories = [
     ...new Set(tickets?.map(({ category }) => category)),
   ];
